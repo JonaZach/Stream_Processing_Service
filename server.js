@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const currentOS = process.platform;
-const header = `For types counter, navigate to http://localhost:3000/types<br>
-  For words counter, navigate to http://localhost:3000/words<br>
-  For counters of the last minute, navigate to http://localhost:3000/lastminutetypes or to http://localhost:3000/lastminutewords`;
+const header = `For types counter, navigate to <a href="http://localhost:3000/types">http://localhost:3000/types</a><br>
+  For words counter, navigate to <a href="http://localhost:3000/words">http://localhost:3000/words</a><br>
+  For counters of the last minute, navigate to <a href="http://localhost:3000/lastminutetypes">http://localhost:3000/lastminutetypes</a>
+  or to <a href="http://localhost:3000/lastminutewords">http://localhost:3000/lastminutewords</a>`;
 let types = new Map();
 let words = new Map();
 let lastMinuteTypes = new Map();
@@ -47,7 +48,6 @@ app.get("/lastminutetypes", (req, res) => {
 });
 
 app.get("/lastminutewords", (req, res) => {
-  console.log(lastMinuteWords);
   let displayLastMinuteWords = "";
   if (lastMinuteWords) {
     lastMinuteWords.forEach(
@@ -78,7 +78,7 @@ switch (currentOS) {
     child = spawn("./resources/generator-windows-amd64.exe");
 }
 
-// callback to execute when data are available
+// callback to execute when data is available
 child.stdout.on("data", data => {
   const strLines = data.toString().split("\n");
 
@@ -124,6 +124,7 @@ child.on("close", code => {
   console.log(`child process exited with code ${code}`);
 });
 
+// check if a string is a validate JSON
 function isJSON(str) {
   try {
     return JSON.parse(str) && !!str;
