@@ -1,16 +1,22 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
-const port = 3000;
 const currentOS = process.platform;
+const port = 3000;
+
 const header = `For types counter, navigate to <a href="http://localhost:3000/types">http://localhost:3000/types</a><br>
   For words counter, navigate to <a href="http://localhost:3000/words">http://localhost:3000/words</a><br>
   For counters of the last minute, navigate to <a href="http://localhost:3000/lastminutetypes">http://localhost:3000/lastminutetypes</a>
   or to <a href="http://localhost:3000/lastminutewords">http://localhost:3000/lastminutewords</a>`;
+
 let types = new Map();
 let words = new Map();
 let lastMinuteTypes = new Map();
 let lastMinuteWords = new Map();
 let child;
+
+// set headers
+app.use(cors());
 
 // handle GET requests
 app.get("/", (req, res) => {
@@ -124,7 +130,7 @@ child.on("close", code => {
   console.log(`child process exited with code ${code}`);
 });
 
-// check if a string is a validate JSON
+// check if a string is a valid JSON
 function isJSON(str) {
   try {
     return JSON.parse(str) && !!str;
