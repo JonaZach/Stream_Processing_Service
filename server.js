@@ -11,6 +11,7 @@ let lastMinuteTypes = new Map();
 let lastMinuteWords = new Map();
 let child;
 
+// handle GET requests
 app.get("/", (req, res) => {
   res.send(header);
 });
@@ -61,6 +62,8 @@ app.listen(port, () => {
 });
 
 const { spawn } = require("child_process");
+
+// identify the operating system platform and launch the corresponding generator in a new child process
 switch (currentOS) {
   case "win32":
     child = spawn("./resources/generator-windows-amd64.exe");
@@ -75,6 +78,7 @@ switch (currentOS) {
     child = spawn("./resources/generator-windows-amd64.exe");
 }
 
+// callback to execute when data are available
 child.stdout.on("data", data => {
   const strLines = data.toString().split("\n");
 
@@ -83,6 +87,7 @@ child.stdout.on("data", data => {
       const obj = JSON.parse(strLines[i]);
       const { event_type: type, data, timestamp } = obj;
 
+      // increase the events and words counters
       if (types.has(type)) types.set(type, types.get(type) + 1);
       else types.set(type, 1);
 
@@ -97,6 +102,7 @@ child.stdout.on("data", data => {
         lastMinuteWords.set(data, lastMinuteWords.get(data) + 1);
       else lastMinuteWords.set(data, 1);
 
+      // decrease the events and words counters after 60 seconds for the bonus task
       setTimeout(function () {
         if (lastMinuteTypes.get(type) > 1)
           lastMinuteTypes.set(type, lastMinuteTypes.get(type) - 1);
