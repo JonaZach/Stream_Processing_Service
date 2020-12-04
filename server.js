@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
 const currentOS = process.platform;
 const port = 3000;
@@ -14,9 +13,6 @@ let words = new Map();
 let lastMinuteTypes = new Map();
 let lastMinuteWords = new Map();
 let child;
-
-// set headers
-app.use(cors());
 
 // handle GET requests
 app.get("/", (req, res) => {
@@ -63,6 +59,7 @@ app.get("/lastminutewords", (req, res) => {
   }
 });
 
+// start a UNIX socket and listen for connection
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
