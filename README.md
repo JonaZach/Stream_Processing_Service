@@ -1,5 +1,5 @@
 ## Description
-A non-blocking stream processing service that consumes the output of the given generator, which is an infinite stream of lines of event data encoded in JSON, and exposes stats about the stream in an HTTP interface
+Non-blocking stream processing service that consumes the output of the given generator, which is an infinite stream of lines of event data encoded in JSON, and exposes stats about the stream in an HTTP interface
 ## Installation & Usage  
 This project uses **node** and **npm**. Please install them if you do not have them locally installed.  
 Navigate to the project directory and run `npm i && node server.js`.  
