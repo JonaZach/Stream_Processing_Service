@@ -5,13 +5,13 @@ This project uses **node** and **npm**. Please install them if you do not have t
 Navigate to the project directory and run `npm i && node server.js`.  
 Then visit [localhost:3000](http://localhost:3000).  
 ## Endpoints
-### GET types
+### GET /types
 	Count of events encountered in the event_type field of the events
-### GET words
+### GET /words
 	Count of words encountered in the data field of the events
-### GET lastminutetypes
+### GET /lastminutetypes
 	Count of events encountered in the event_type field of the events in the last 60 seconds
-### GET lastminutewords
+### GET /lastminutewords
 	Count of words encountered in the data field of the events in the last 60 seconds
 ## Important notes
 * On a Unix OS, run `chmod x+ <filename>`. For example: `chmod x+ ./generator-macosx-amd64`.  
