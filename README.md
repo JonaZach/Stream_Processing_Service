@@ -7,7 +7,7 @@ Navigate to the project directory and run `npm i && node server.js`.
 Then visit [localhost:3000](http://localhost:3000).  
 ## Important notes:
 On a Unix OS, run `chmod x+ <filename>`. For example: `chmod x+ ./generator-macosx-amd64`.  
-On Mac OS, you need to allow running files from AppStore and identified developers.  
+On Mac OS, you need to allow running files from **AppStore and identified developers**.  
 * Then when you try and run the program from your terminal, you will get a prompt to allow the execution.  
-* Then the Security & Privacy window will pop up.  
-* Then you can allow the specific executable to run.  
+* Then the **Security & Privacy** window will pop up.  
+* Then you can allow the specific executable to run.
