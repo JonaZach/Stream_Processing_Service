@@ -4,7 +4,7 @@ Implementation of a non-blocking stream processing service.
 This project uses **node** and **npm**. Please install them if you do not have them locally installed.  
 ## Usage  
 Navigate to the project directory and run `npm i && node server.js`.  
-Then visit `http://localhost:3000`.  
+Then visit [localhost:3000](http://localhost:3000).  
 ## Important notes:
 On a Unix OS, run `chmod x+ <filename>`. For example: `chmod x+ ./generator-macosx-amd64`.  
 On Mac OS, you need to allow running files from AppStore and identified developers.  
